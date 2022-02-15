@@ -1,0 +1,25 @@
+.form-field {
+    width: 100%;
+    margin-right: 10px;
+}
+
+.title {
+    padding-left: 4vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    color: #3f51b5;
+    font-size: xx-large;
+}
+
+.inputs {
+    padding-left: 4vw;
+    padding-right: 3vw;
+    .form-field {
+        width: 60vw;
+    }
+    .buttons {
+        button {
+            margin-right: 2vw;
+        }
+    }
+}

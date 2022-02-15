@@ -1,0 +1,30 @@
+<div fxLayout="row" fxLayoutAlign="start center" class="title">
+    Gestión de usuarios
+</div>
+<div fxLayout="row" fxLayoutAlign="space-between center" class="inputs">
+    <div>
+        <mat-form-field class="form-field" appearance="legacy">
+            <mat-label>Búsqueda</mat-label>
+            <input matInput type="text" [(ngModel)]="searchValue" />
+            <button matSuffix mat-icon-button aria-label=" Clear " (click)="searchValue = ''">
+          <mat-icon>close</mat-icon>
+        </button>
+        </mat-form-field>
+    </div>
+    <div class="buttons">
+        <button mat-stroked-button color="primary" (click)="rating = 'mayor'">
+        Mayor rating
+      </button>
+        <button mat-stroked-button color="primary" (click)="rating = 'minor'">
+        Minor rating
+      </button>
+        <button mat-stroked-button color="primary" (click)="rating = ''">
+        Refresh
+      </button>
+    </div>
+</div>
+<mat-grid-list cols="5 ">
+    <mat-grid-tile rowspan="2" colspan="1" *ngFor="let user of users | userSearch: searchValue:rating">
+        <app-post [user]="user" (userSelected)="userSelected($event)"></app-post>
+    </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,25 @@
+<mat-card class="example-card">
+    <img mat-card-image src="{{ user.avatar }}" alt="Photo" />
+    <mat-card-content>
+        <div class="name">
+            {{ user.name }}
+        </div>
+        <div class="location">
+            {{ user.location.toUpperCase() }}
+        </div>
+        <div *ngIf="user.rating > 4.5 ">
+            <ngx-material-rating [color]="'primary'" [max]="5" [value]="user.rating" [(ngModel)]="user.rating">
+            </ngx-material-rating>
+        </div>
+        <div *ngIf="user.rating <= 4.5 ">
+            <ngx-material-rating [color]="'warn'" [max]="5" [value]="user.rating" [(ngModel)]="user.rating">
+            </ngx-material-rating>
+        </div>
+        <div [ngStyle]="{ 'color': colorRating, 'text-align': 'center' }">
+            {{ user.rating }}
+        </div>
+        <button (click)="editUser()" class="edit" mat-flat-button color="primary">
+      <mat-icon>edit</mat-icon>Edita
+    </button>
+    </mat-card-content>
+</mat-card>
