@@ -20,8 +20,6 @@ export class AppComponent implements OnInit{
       this.users = us;
     } );
   }
-  userSelected(e: User){
-    console.log(e);
-  }
+
 
 }

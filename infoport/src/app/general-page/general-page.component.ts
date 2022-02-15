@@ -19,8 +19,6 @@ export class GeneralPageComponent implements OnInit {
       this.users = us;
     });
   }
-  userSelected(e: User) {
-    this.router.navigate(['details', e.id]);
-  }
+ 
 
 }

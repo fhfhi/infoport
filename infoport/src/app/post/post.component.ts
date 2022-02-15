@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from '../models/user.model';
 
 @Component({
@@ -18,10 +19,9 @@ export class PostComponent implements OnInit {
     rating: 0,
     audio: '',
   };
-  @Output() userSelected = new EventEmitter<User>();
   rating = 0;
   colorRating = '';
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     if (this.user.rating > 4.5) {
@@ -30,8 +30,8 @@ export class PostComponent implements OnInit {
       this.colorRating = '#f44336';
     }
   }
-  editUser(): void {
-    this.userSelected.emit(this.user);
+  userSelected() {
+    this.router.navigate(['details', this.user.id]);
   }
 
 }

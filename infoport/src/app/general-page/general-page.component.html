@@ -25,6 +25,6 @@
 </div>
 <mat-grid-list cols="5 ">
     <mat-grid-tile rowspan="2" colspan="1" *ngFor="let user of users | userSearch: searchValue:rating">
-        <app-post [user]="user" (userSelected)="userSelected($event)"></app-post>
+        <app-post [user]="user"></app-post>
     </mat-grid-tile>
 </mat-grid-list>
